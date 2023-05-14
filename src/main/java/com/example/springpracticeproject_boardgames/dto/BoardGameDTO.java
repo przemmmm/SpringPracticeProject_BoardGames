@@ -1,6 +1,6 @@
 package com.example.springpracticeproject_boardgames.dto;
 
-import com.example.springpracticeproject_boardgames.enums.GamesType;
+import com.example.springpracticeproject_boardgames.enums.GameType;
 import lombok.*;
 
 @NoArgsConstructor
@@ -9,11 +9,12 @@ import lombok.*;
 @Setter
 @ToString
 @Builder
-public class BoardGamesDTO {
+public class BoardGameDTO {
     private int id;
     private String title;
     // czy potrzebne @Enumerated???
-    private GamesType gamesType;
+    private String gameType;
     private Double price;
     private int quantity;
 }
+
