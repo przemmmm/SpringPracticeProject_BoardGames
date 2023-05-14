@@ -16,5 +16,12 @@ public class BoardGameDTO {
     private String gameType;
     private Double price;
     private int quantity;
+
+    public BoardGameDTO(String title, String gameType, Double price, int quantity) {
+        this.title = title;
+        this.gameType = gameType;
+        this.price = price;
+        this.quantity = quantity;
+    }
 }
 
