@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Adding boardgame</title>
+</head>
+<body>
+<h1>Add board game</h1>
+<form action="/add" method="post"  enctype="multipart/form-data">
+  <label>Title:</label>
+  <input type="text" name="title">
+  <label>Boerdgame type:</label>
+  <select name="gameType">
+    <option value="RPG">RPG</option>
+    <option value="STRATEGY">Strategy</option>
+    <option value="FAMILY">Family</option>
+    <option value="ADVENTURE">Adventure</option>
+    <option value="CARD">Card</option>
+    <option value="ADULT">Adult</option>
+    <option value="SOCIAL">Social</option>
+  </select>
+  <label>Price:</label>
+  <input type="number" name="price">
+  <label>Quantity:</label>
+  <input type="number" name="quantity">
+  <button type="submit">Dodaj</button>
+</form>
+<a href="/home" >Back to homepage</a>
+</body>
+</html>

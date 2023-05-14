@@ -1,7 +1,7 @@
 package com.example.springpracticeproject_boardgames.entity;
 
 
-import com.example.springpracticeproject_boardgames.enums.GamesType;
+import com.example.springpracticeproject_boardgames.enums.GameType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,7 +14,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(name = "board games")
-public class BoardGames {
+public class BoardGame {
     @Column(name = "Id")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,15 +23,15 @@ public class BoardGames {
     private String title;
     @Column(name = "Type")
     @Enumerated(EnumType.STRING)
-    private GamesType gamesType;
+    private GameType gameType;
     @Column(name = "Price")
     private Double price;
     @Column(name = "Quantity")
     private int quantity;
 
-    public BoardGames(String title, GamesType gamesType, Double price, int quantity) {
+    public BoardGame(String title, GameType gameType, Double price, int quantity) {
         this.title = title;
-        this.gamesType = gamesType;
+        this.gameType = gameType;
         this.price = price;
         this.quantity = quantity;
     }
