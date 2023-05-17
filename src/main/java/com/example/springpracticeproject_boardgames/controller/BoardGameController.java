@@ -31,7 +31,7 @@ public class BoardGameController {
 
     @PostMapping("/add")
     public String addBoardGame(BoardGameDTO boardGameDTO) {
-        System.out.println(boardGameDTO);
+        //System.out.println(boardGameDTO);
         boardGameService.addBoardGame(boardGameDTO);
         return "index.html";
     }

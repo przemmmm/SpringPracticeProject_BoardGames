@@ -28,10 +28,11 @@ public class BoardGameMapper {
                 .gameType(boardGame.getGameType().toString())
                 .price(boardGame.getPrice())
                 .quantity(boardGame.getQuantity())
+                .fileName(boardGame.getFileName())
                 .build();
     }
 
     public BoardGame mapToEntity(BoardGameDTO boardGamesDTO) {
-        return new BoardGame(boardGamesDTO.getTitle(), GameType.valueOf(boardGamesDTO.getGameType()), boardGamesDTO.getPrice(), boardGamesDTO.getQuantity());
+        return new BoardGame(boardGamesDTO.getTitle(), GameType.valueOf(boardGamesDTO.getGameType()), boardGamesDTO.getPrice(), boardGamesDTO.getQuantity(), boardGamesDTO.getFileName());
     }
 }
