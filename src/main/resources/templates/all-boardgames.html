@@ -1,17 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
     <meta charset="UTF-8">
     <title>Boardgames</title>
 </head>
 <body>
 <h1>All products</h1>
-<a href="/dixit" >Dixit</a>
-<div th:each="boardGame:${boardGames}">
-  <div th:text="${boardGame.title}"></div>
-  <div th:text="${boardGame.gameType}"></div>
-  <div th:text="${boardGame.price}"></div>
-  <div th:text="${boardGame.quantity}"></div>
-  </div>
+
+<table id = "BoardGamesTable">
+    <thead>
+    <tr>
+        <th>Title:</th>
+        <th>Game type:</th>
+        <th>Price:</th>
+        <th>Quantity:</th>
+        <th>Box cover:</th>
+        <th>Buy:</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="boardGame:${boardGames}">
+        <td th:text="${boardGame.title}"></td>
+<!--        <a href="/dixit" >Dixit</a>-->
+        <td th:text="${boardGame.gameType}"></td>
+        <td th:text="${boardGame.price}"></td>
+        <td th:text="${boardGame.quantity}"></td>
+        <td>
+        <img th:src="@{'/images/' + ${boardGame.fileName}}" alt="Nazwa obrazka">
+        </td>
+        <td>
+            <form action="/add-to-cart" method="post">
+                <input type="checkbox" name="selectedItems" th:value="${boardGame.id}"/>
+                <span th:text="${boardGame.title}"></span>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<button type="submit">Add to Cart</button>
+
+<a href="/home" >Back to homepage</a>
+
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+    }
+
+    img {
+        width: 200px;
+        height: 150px;
+    }
+</style>
+
+<script>
+    $(document).ready(function() {
+        $('#BoardGamesTable').DataTable();
+    });
+</script>
+
 </body>
 </html>

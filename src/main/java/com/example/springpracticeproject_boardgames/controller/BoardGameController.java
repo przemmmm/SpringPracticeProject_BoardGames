@@ -32,7 +32,7 @@ public class BoardGameController {
 
     @PostMapping("/add")
     public String addBoardGame(BoardGameDTO boardGameDTO) {
-        System.out.println(boardGameDTO);
+        //System.out.println(boardGameDTO);
         boardGameService.addBoardGame(boardGameDTO);
         return "index.html";
     }
@@ -51,4 +51,8 @@ public class BoardGameController {
         return "dixit.html";
     }
 
+    @GetMapping("/cart")
+    public String getCart() {
+        return "cart.html";
+    }
 }

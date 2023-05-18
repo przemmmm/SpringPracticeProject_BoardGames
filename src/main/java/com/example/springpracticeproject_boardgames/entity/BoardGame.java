@@ -28,12 +28,18 @@ public class BoardGame {
     private Double price;
     @Column(name = "Quantity")
     private int quantity;
+    @Column(name = "File Name")
+    private String fileName;
 
-    public BoardGame(String title, GameType gameType, Double price, int quantity) {
-
+    public BoardGame(String title, GameType gameType, Double price, int quantity, String fileName) {
         this.title = title;
         this.gameType = gameType;
         this.price = price;
         this.quantity = quantity;
+        this.fileName = fileName;
+    }
+
+    public String getFileNameWithId() {
+        return id + "-"+fileName;
     }
 }
