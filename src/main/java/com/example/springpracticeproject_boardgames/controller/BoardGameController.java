@@ -1,6 +1,7 @@
 package com.example.springpracticeproject_boardgames.controller;
 
 import com.example.springpracticeproject_boardgames.dto.BoardGameDTO;
+import com.example.springpracticeproject_boardgames.entity.BoardGame;
 import com.example.springpracticeproject_boardgames.service.BoardGameService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -41,6 +42,13 @@ public class BoardGameController {
         List<BoardGameDTO> boardGames= boardGameService.getBoardGames();
         model.addAttribute("boardGames", boardGames);
         return "all-boardgames.html";
+    }
+
+    @GetMapping("/dixit")
+    public String firstBoardGamePage(Model model) {
+        BoardGame boardGame1 = boardGameService.firstBoardGame();
+        model.addAttribute("firstBoardGame", boardGame1);
+        return "dixit.html";
     }
 
 }

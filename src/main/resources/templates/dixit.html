@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dixit</title>
+</head>
+<body>
+<h1><div th:text="${firstBoardGame.getTitle}"></div></h1>
+
+<div th:each="boardGame1:${firstBoardGame}">
+    <div th:text="${boardGame1.title}"></div>
+    <div th:text="${boardGame1.gameType}"></div>
+    <div th:text="${boardGame1.price}"></div>
+    <div th:text="${boardGame1.quantity}"></div>
+</div>
+</body>
+</html>

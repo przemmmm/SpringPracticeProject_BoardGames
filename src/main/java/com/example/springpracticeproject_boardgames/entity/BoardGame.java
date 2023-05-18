@@ -30,6 +30,7 @@ public class BoardGame {
     private int quantity;
 
     public BoardGame(String title, GameType gameType, Double price, int quantity) {
+
         this.title = title;
         this.gameType = gameType;
         this.price = price;
