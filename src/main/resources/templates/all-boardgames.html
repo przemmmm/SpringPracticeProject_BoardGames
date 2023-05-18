@@ -6,11 +6,19 @@
 </head>
 <body>
 <h1>All products</h1>
+<form action="/add-to-cart" method="post">
 <div th:each="boardGame:${boardGames}">
+    <div>
+        <input type="checkbox" name="selectedItems" th:value="${boardGame.id}"/>
+        <span th:text="${boardGame.title}"></span>
+    </div>
   <div th:text="${boardGame.title}"></div>
   <div th:text="${boardGame.gameType}"></div>
   <div th:text="${boardGame.price}"></div>
   <div th:text="${boardGame.quantity}"></div>
   </div>
+    <button type="submit">Add to Cart</button>
+</form>
+<a href="/home" >Back to homepage</a>
 </body>
 </html>

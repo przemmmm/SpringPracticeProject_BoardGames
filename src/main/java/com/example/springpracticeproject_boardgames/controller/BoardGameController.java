@@ -43,4 +43,8 @@ public class BoardGameController {
         return "all-boardgames.html";
     }
 
+    @GetMapping("/cart")
+    public String getCart() {
+        return "cart.html";
+    }
 }
