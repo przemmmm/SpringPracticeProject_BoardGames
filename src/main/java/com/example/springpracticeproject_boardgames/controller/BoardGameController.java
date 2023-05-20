@@ -1,5 +1,6 @@
 package com.example.springpracticeproject_boardgames.controller;
 
+import com.example.springpracticeproject_boardgames.config.DataLoader;
 import com.example.springpracticeproject_boardgames.dto.BoardGameDTO;
 import com.example.springpracticeproject_boardgames.entity.BoardGame;
 import com.example.springpracticeproject_boardgames.service.BoardGameService;
@@ -15,6 +16,7 @@ import java.util.List;
 public class BoardGameController {
 
     private BoardGameService boardGameService;
+    private DataLoader dataLoader;
 
     public BoardGameController(BoardGameService boardGameService) {
         this.boardGameService = boardGameService;
@@ -44,12 +46,12 @@ public class BoardGameController {
         return "all-boardgames.html";
     }
 
-    @GetMapping("/dixit")
-    public String firstBoardGamePage(Model model) {
-        BoardGame boardGame1 = boardGameService.firstBoardGame();
-        model.addAttribute("firstBoardGame", boardGame1);
-        return "dixit.html";
-    }
+////    @GetMapping("/dixit")
+//    public String firstBoardGamePage(Model model) {
+//        BoardGame boardGame1;
+//        model.addAttribute("firstBoardGame", boardGame1);
+//        return "dixit.html";
+//    }
 
     @GetMapping("/cart")
     public String getCart() {
