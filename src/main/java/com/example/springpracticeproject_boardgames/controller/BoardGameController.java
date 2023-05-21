@@ -63,4 +63,10 @@ public class BoardGameController {
         model.addAttribute("cart", cartSession);
         return "cart.html";
     }
+
+    @PostMapping("/add-to-cart")
+    public String addToCart (BoardGameDTO boardGameDTO){
+        System.out.println(boardGameDTO);
+        return "index.html";
+    }
 }

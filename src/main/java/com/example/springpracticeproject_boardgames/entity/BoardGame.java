@@ -15,7 +15,7 @@ import lombok.Setter;
 @Setter
 @Table(name = "board games")
 public class BoardGame {
-    @Column(name = "Id")
+    @Column(name = "board_game_id")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int boardGameId;
