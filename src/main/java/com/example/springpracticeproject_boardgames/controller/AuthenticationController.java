@@ -3,9 +3,7 @@ package com.example.springpracticeproject_boardgames.controller;
 import com.example.springpracticeproject_boardgames.dto.LoginDTO;
 import com.example.springpracticeproject_boardgames.dto.RegisterDTO;
 import com.example.springpracticeproject_boardgames.exception.AuthenticationServiceException;
-import com.example.springpracticeproject_boardgames.service.CustomerService;
-import lombok.Getter;
-import org.springframework.boot.Banner;
+import com.example.springpracticeproject_boardgames.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,10 +13,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class AuthenticationController {
-    private CustomerService customerService;
+    private UserService userService;
 
-    public AuthenticationController(CustomerService customerService) {
-        this.customerService = customerService;
+    public AuthenticationController(UserService userService) {
+        this.userService = userService;
     }
 
     @GetMapping("/register")
@@ -29,10 +27,10 @@ public class AuthenticationController {
         return modelAndView;
     }
 
-    @PostMapping("/create-customer")
-    public ModelAndView createCustomer (@ModelAttribute("registerDTO") RegisterDTO registerDTO){
+    @PostMapping("/register")
+    public ModelAndView createUser(@ModelAttribute("registerDTO") RegisterDTO registerDTO){
         ModelAndView modelAndView = new ModelAndView("index.html");
-        customerService.createCustomer(registerDTO);
+        userService.createUser(registerDTO);
         return modelAndView;
     }
 
@@ -46,7 +44,7 @@ public class AuthenticationController {
     @PostMapping("/login")
     public String login (@ModelAttribute ("loginDTO") LoginDTO loginDTO, Model model){
         try{
-            customerService.loginCustomer(loginDTO);
+            userService.loginUser(loginDTO);
             model.addAttribute("message", "You are logged in");
         }catch (AuthenticationServiceException e){
             model.addAttribute("message", e.getMessage());

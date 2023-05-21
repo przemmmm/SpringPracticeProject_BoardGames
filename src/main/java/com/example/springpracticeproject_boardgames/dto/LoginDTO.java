@@ -9,10 +9,10 @@ import lombok.*;
 @ToString
 @Builder
 public class LoginDTO {
-    private String customerEmail;
+    private String userEmail;
     private String password;
 
-    public LoginDTO(String customerEmail) {
-        this.customerEmail = customerEmail;
+//    public LoginDTO(String userEmail) {
+//        this.userEmail = userEmail;
     }
-}
+//}

@@ -1,11 +1,10 @@
 package com.example.springpracticeproject_boardgames.config;
 
 import com.example.springpracticeproject_boardgames.entity.BoardGame;
-import com.example.springpracticeproject_boardgames.entity.Customer;
+import com.example.springpracticeproject_boardgames.entity.User;
 import com.example.springpracticeproject_boardgames.enums.GameType;
 import com.example.springpracticeproject_boardgames.repository.BoardGameRepository;
-import com.example.springpracticeproject_boardgames.repository.CustomerRepository;
-import jakarta.annotation.PostConstruct;
+import com.example.springpracticeproject_boardgames.repository.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -27,12 +26,12 @@ public class DataLoader {
     }
 
     @Bean
-    CommandLineRunner commandLineRunnerCustomer(CustomerRepository customerRepository){
+    CommandLineRunner commandLineRunnerUser(UserRepository userRepository){
         return args -> {
-            Customer customer1 = new Customer();
-            customer1.setCustomerEmail("jan@gmail.com");
-            customer1.setPassword("123");
-            customerRepository.save(customer1);
+            User user1 = new User();
+            user1.setUserEmail("jan@gmail.com");
+            user1.setPassword("123");
+            userRepository.save(user1);
         };
     }
 

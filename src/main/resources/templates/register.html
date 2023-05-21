@@ -6,9 +6,9 @@
 </head>
 <body>
 <h1>Hello in Board games World!</h1>
-<form action="/create-customer" method="post">
+<form action="/register" method="post">
     <label>Add email (login)</label>
-    <input type="text" th:field="${registerDTO.customerEmail}">
+    <input type="text" th:field="${registerDTO.userEmail}">
     <br>
     <label>Add password</label>
     <input type="password" th:field="${registerDTO.password1}">

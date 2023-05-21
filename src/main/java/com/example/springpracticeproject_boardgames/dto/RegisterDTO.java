@@ -9,7 +9,7 @@ import lombok.*;
 @ToString
 @Builder
 public class RegisterDTO {
-    private String customerEmail;
+    private String userEmail;
     private String password1;
     private String password2;
 

@@ -11,19 +11,19 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name="customers")
-public class Customer {
+@Table(name="Users")
+public class User {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name = "customer email")
-    private String customerEmail;
+    @Column(name = "user_email")
+    private String userEmail;
     @Column(name = "password")
     private String password;
 
-    public Customer(String customerEmail, String password) {
-        this.customerEmail = customerEmail;
+    public User(String userEmail, String password) {
+        this.userEmail = userEmail;
         this.password = password;
     }
 }
