@@ -23,7 +23,7 @@ public class BoardGameMapper {
 
     public BoardGameDTO mapToDto(BoardGame boardGame) {
         return BoardGameDTO.builder()
-                .id(boardGame.getId())
+                .boardGameId(boardGame.getBoardGameId())
                 .title(boardGame.getTitle())
                 .gameType(boardGame.getGameType().toString())
                 .price(boardGame.getPrice())

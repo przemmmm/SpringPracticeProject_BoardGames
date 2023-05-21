@@ -18,7 +18,7 @@ public class BoardGame {
     @Column(name = "Id")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int boardGameId;
     @Column(name = "Title")
     private String title;
     @Column(name = "Type")
@@ -47,6 +47,6 @@ public class BoardGame {
     }
 
     public String getFileNameWithId() {
-        return id + "-"+fileName;
+        return boardGameId + "-"+fileName;
     }
 }
