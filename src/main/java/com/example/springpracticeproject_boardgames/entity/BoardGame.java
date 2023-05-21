@@ -39,6 +39,13 @@ public class BoardGame {
         this.fileName = fileName;
     }
 
+    public BoardGame(String title, GameType gameType, Double price, int quantity) {
+        this.title = title;
+        this.gameType = gameType;
+        this.price = price;
+        this.quantity = quantity;
+    }
+
     public String getFileNameWithId() {
         return id + "-"+fileName;
     }
