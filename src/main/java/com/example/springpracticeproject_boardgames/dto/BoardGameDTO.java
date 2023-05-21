@@ -1,6 +1,5 @@
 package com.example.springpracticeproject_boardgames.dto;
 
-import com.example.springpracticeproject_boardgames.enums.GameType;
 import lombok.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -11,7 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 @ToString
 @Builder
 public class BoardGameDTO {
-    private int id;
+    private int boardGameId;
     private String title;
     // czy potrzebne @Enumerated???
     private String gameType;

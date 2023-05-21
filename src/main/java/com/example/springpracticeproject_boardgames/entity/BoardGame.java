@@ -15,10 +15,10 @@ import lombok.Setter;
 @Setter
 @Table(name = "board games")
 public class BoardGame {
-    @Column(name = "Id")
+    @Column(name = "board_game_id")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int boardGameId;
     @Column(name = "Title")
     private String title;
     @Column(name = "Type")
@@ -39,7 +39,14 @@ public class BoardGame {
         this.fileName = fileName;
     }
 
+    public BoardGame(String title, GameType gameType, Double price, int quantity) {
+        this.title = title;
+        this.gameType = gameType;
+        this.price = price;
+        this.quantity = quantity;
+    }
+
     public String getFileNameWithId() {
-        return id + "-"+fileName;
+        return boardGameId + "-"+fileName;
     }
 }

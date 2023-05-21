@@ -1,0 +1,42 @@
+[
+  {
+  "title": "Splendor",
+  "gameType": "STRATEGY",
+  "price": 80,
+  "quantity": 12
+},
+  {
+    "title": "Wsiąść do pociągu, Europa",
+    "gameType": "STRATEGY",
+    "price": 150,
+    "quantity": 20
+  },
+  {
+    "title": "Abyss",
+    "gameType": "ADVENTURE",
+    "price": 130,
+    "quantity": 9
+  },
+  {
+    "title": "Osadnicy z Catanu",
+    "gameType": "ADVENTURE",
+    "price": 129,
+    "quantity": 13
+  },
+  {
+    "title": "5 sekund",
+    "gameType": "SOCIAL",
+    "price": 130,
+    "quantity": 19
+  },
+  {
+    "title": "Wirus",
+    "gameType": "CARD",
+    "price": 20,
+    "quantity": 11
+  }
+  ]
+
+
+
+

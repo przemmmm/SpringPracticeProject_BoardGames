@@ -10,7 +10,7 @@
 <body>
 <h1>All products</h1>
 
-<table id = "BoardGamesTable">
+<table boardGameId = "BoardGamesTable">
     <thead>
     <tr>
         <th>Title:</th>
@@ -32,15 +32,17 @@
         <img th:src="@{'/images/' + ${boardGame.fileName}}" alt="Nazwa obrazka">
         </td>
         <td>
+
             <form action="/add-to-cart" method="post">
-                <input type="checkbox" name="selectedItems" th:value="${boardGame.id}"/>
+                <button type="submit">Add to Cart</button>
+<!--                <input type="checkbox" name="selectedItems" th:value="${boardGame.boardGameId}"/>-->
                 <span th:text="${boardGame.title}"></span>
             </form>
         </td>
     </tr>
     </tbody>
 </table>
-<button type="submit">Add to Cart</button>
+
 
 <a href="/home" >Back to homepage</a>
 

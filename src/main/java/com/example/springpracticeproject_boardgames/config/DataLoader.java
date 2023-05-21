@@ -9,6 +9,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.List;
+
 @Configuration
 
 public class DataLoader {
@@ -16,12 +18,17 @@ public class DataLoader {
     @Bean
     CommandLineRunner commandLineRunner(BoardGameRepository boardGameRepository) {
         return args -> {
-            BoardGame boardGame1 = new BoardGame();
-            boardGame1.setTitle("Dixit");
-            boardGame1.setGameType(GameType.valueOf("FAMILY"));
-            boardGame1.setPrice(100.00);
-            boardGame1.setQuantity(43);
-            boardGameRepository.save(boardGame1);
+            BoardGame dixit = new BoardGame();
+            dixit.setTitle("Dixit");
+            dixit.setGameType(GameType.valueOf("FAMILY"));
+            dixit.setPrice(100.00);
+            dixit.setQuantity(43);
+
+        BoardGame splendor = new BoardGame("Splendor", GameType.STRATEGY, 80.0,12);
+        BoardGame wsiacDoPociagu = new BoardGame("Wsiąśc do pociagu, Europa", GameType.STRATEGY, 150.0,20);
+        BoardGame abyss = new BoardGame("Abyss", GameType.ADVENTURE, 130.99,6);
+        BoardGame talizman = new BoardGame("Talizman", GameType.STRATEGY, 300.0,1);
+            boardGameRepository.saveAll(List.of(dixit, splendor, wsiacDoPociagu, abyss, talizman));
         };
     }
 
