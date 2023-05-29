@@ -1,17 +1,18 @@
 package com.example.springpracticeproject_boardgames.controller;
 
 import com.example.springpracticeproject_boardgames.CartSession;
-import com.example.springpracticeproject_boardgames.config.CartSessionConfig;
 import com.example.springpracticeproject_boardgames.config.DataLoader;
 import com.example.springpracticeproject_boardgames.dto.BoardGameDTO;
 import com.example.springpracticeproject_boardgames.entity.BoardGame;
+import com.example.springpracticeproject_boardgames.enums.GameType;
 import com.example.springpracticeproject_boardgames.service.BoardGameService;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+
 
 import java.util.List;
 
@@ -39,7 +40,6 @@ public class BoardGameController {
 
     @PostMapping("/add")
     public String addBoardGame(BoardGameDTO boardGameDTO) {
-        //System.out.println(boardGameDTO);
         boardGameService.addBoardGame(boardGameDTO);
         return "index.html";
     }
@@ -51,12 +51,18 @@ public class BoardGameController {
         return "all-boardgames.html";
     }
 
-////    @GetMapping("/dixit")
-//    public String firstBoardGamePage(Model model) {
-//        BoardGame boardGame1;
-//        model.addAttribute("firstBoardGame", boardGame1);
-//        return "dixit.html";
+    @GetMapping("/boardgames/{title:.*}")
+    public String getBoardGamePage(@PathVariable String title,  Model model) {
+        model.addAttribute("@{title}", title);
+        System.out.println(title + model);
+        return "boardgame-id.html";
+    }
+//    @PostMapping("/boardgames/{title}")
+//    public String boardGamePage(BoardGameDTO boardGameDTO) {
+//        System.out.println(boardGameDTO);
+//        return "index.html";
 //    }
+
 
     @GetMapping("/cart")
     public String getCart(Model model) {
