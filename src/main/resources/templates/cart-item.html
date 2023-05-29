@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <title>Cart</title>
+</head>
+<body>
+<h1>Cart</h1>
+<table>
+  <thead>
+  <tr>
+    <th>Game Title</th>
+    <th>Quantity</th>
+    <th>Price</th>
+    <th>Total</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="cartBoardGame : ${cartBoardGames}">
+    <td th:text="${cartBoardGame.title}"></td>
+    <td th:text="${cartBoardGame.counter}"></td>
+    <td th:text="${cartBoardGame.price}"></td>
+    <td th:text="${cartBoardGame.counter * cartBoardGame.price}"></td>
+  </tr>
+  </tbody>
+</table>
+<a href="/home" >Back to homepage</a>
+</body>
+</html>

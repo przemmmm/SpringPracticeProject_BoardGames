@@ -2,10 +2,8 @@ package com.example.springpracticeproject_boardgames.service;
 
 import com.example.springpracticeproject_boardgames.dto.BoardGameDTO;
 import com.example.springpracticeproject_boardgames.entity.BoardGame;
-import com.example.springpracticeproject_boardgames.enums.GameType;
 import com.example.springpracticeproject_boardgames.mapper.BoardGameMapper;
 import com.example.springpracticeproject_boardgames.repository.BoardGameRepository;
-import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
@@ -54,6 +52,10 @@ public class BoardGameService {
         return boardGameRepository.findAll().stream()
                 .map(boardGame -> new BoardGameDTO(boardGame.getTitle(),boardGame.getGameType().toString(),
                         boardGame.getPrice(), boardGame.getQuantity(), boardGame.getFileName())).toList();
+     }
+
+     public BoardGame findById(int boardGameId){
+        return boardGameRepository.findById(boardGameId).orElse(null);
      }
 
 }
