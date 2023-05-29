@@ -23,7 +23,7 @@
     </thead>
     <tbody>
     <tr th:each="boardGame:${boardGames}">
-        <form action="/boardgame/@{title}" method="post">
+        <form action="/boardgame/@{title:.*}" method="get">
         <td>
             <a th:text="${boardGame.title}" th:href="@{ '/boardgames/' + ${boardGame.title} }" >
             </a>
