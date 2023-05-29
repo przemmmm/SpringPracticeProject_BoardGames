@@ -13,7 +13,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@Table(name = "board games")
+@Table(name = "board_games")
 public class BoardGame {
     @Column(name = "board_game_id")
     @Id

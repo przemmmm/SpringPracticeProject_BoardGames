@@ -23,8 +23,9 @@ public class DataLoader {
             dixit.setGameType(GameType.valueOf("FAMILY"));
             dixit.setPrice(100.00);
             dixit.setQuantity(43);
+            dixit.setFileName("https://gryplanszowe-basanti.pl/21504-medium_default/dixit-nowa-edycja.jpg");
 
-        BoardGame splendor = new BoardGame("Splendor", GameType.STRATEGY, 80.0,12);
+        BoardGame splendor = new BoardGame("Splendor", GameType.STRATEGY, 80.0,12, "https://files.rebel.pl/products/100/606/_28615/rebel_gra_rodzinna_splendor_new_3d_okladka.png");
         BoardGame wsiacDoPociagu = new BoardGame("Wsiąśc do pociagu, Europa", GameType.STRATEGY, 150.0,20);
         BoardGame abyss = new BoardGame("Abyss", GameType.ADVENTURE, 130.99,6);
         BoardGame talizman = new BoardGame("Talizman", GameType.STRATEGY, 300.0,1);

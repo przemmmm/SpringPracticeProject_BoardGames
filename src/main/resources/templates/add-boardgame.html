@@ -8,9 +8,9 @@
 <h1>Add board game</h1>
 <form action="/add" method="post"  enctype="multipart/form-data">
   <label>Title:</label>
-  <input type="text" name="title">
+  <input type="text" name="title" required>
   <label>Boerdgame type:</label>
-  <select name="gameType">
+  <select name="gameType" required>
     <option value="RPG">RPG</option>
     <option value="STRATEGY">Strategy</option>
     <option value="FAMILY">Family</option>
@@ -20,11 +20,11 @@
     <option value="SOCIAL">Social</option>
   </select>
   <label>Price:</label>
-  <input type="number" name="price">
+  <input type="number" name="price" required>
   <label>Quantity:</label>
-  <input type="number" name="quantity">
+  <input type="number" name="quantity" required>
   <label>Obrazek produktu:</label>
-  <input type="file" name="file">
+  <input type="file" name="file" required>
   <button type="submit">Dodaj</button>
 </form>
 <a href="/home" >Back to homepage</a>
