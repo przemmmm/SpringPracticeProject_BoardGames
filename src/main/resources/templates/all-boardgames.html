@@ -31,9 +31,10 @@
         <td th:text="${boardGame.gameType}"></td>
         <td th:text="${boardGame.price}"></td>
         <td th:text="${boardGame.quantity}"></td>
+
         </form>
         <td>
-        <img th:src="@{'/images/' + ${boardGame.fileName}}" alt="Nazwa obrazka">
+            <img th:src="@{${boardGame.fileName}}">
         </td>
         <td>
             <form action="/add-to-cart" method="post">
