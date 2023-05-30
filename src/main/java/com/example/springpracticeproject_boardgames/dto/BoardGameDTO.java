@@ -12,7 +12,6 @@ import org.springframework.web.multipart.MultipartFile;
 public class BoardGameDTO {
     private int boardGameId;
     private String title;
-    // czy potrzebne @Enumerated???
     private String gameType;
     private Double price;
     private int quantity;
