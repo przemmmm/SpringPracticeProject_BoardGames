@@ -19,7 +19,8 @@ public class BoardGameDTO {
 
     private String fileName;
 
-    public BoardGameDTO(String title, String gameType, Double price, int quantity, String fileName) {
+    public BoardGameDTO(int boardGameId, String title, String gameType, Double price, int quantity, String fileName) {
+        this.boardGameId = boardGameId;
         this.title = title;
         this.gameType = gameType;
         this.price = price;

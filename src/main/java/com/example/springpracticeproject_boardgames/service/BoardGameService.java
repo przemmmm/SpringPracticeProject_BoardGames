@@ -50,7 +50,7 @@ public class BoardGameService {
 
      public List<BoardGameDTO> getBoardGames (){
         return boardGameRepository.findAll().stream()
-                .map(boardGame -> new BoardGameDTO(boardGame.getTitle(),boardGame.getGameType().toString(),
+                .map(boardGame -> new BoardGameDTO(boardGame.getBoardGameId(), boardGame.getTitle(),boardGame.getGameType().toString(),
                         boardGame.getPrice(), boardGame.getQuantity(), boardGame.getFileName())).toList();
      }
 
