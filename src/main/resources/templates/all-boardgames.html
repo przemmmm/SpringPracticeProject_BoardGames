@@ -37,7 +37,9 @@
             <img th:src="@{${boardGame.fileName}}">
         </td>
         <td>
-            <form action="/add-to-cart" method="post">
+            <form th:action="@{'/add-to-cart/' + ${boardGame.boardGameId}}" method="post">
+<!--                <input type="hidden" value="1" name="boardGameId">-->
+<!--                <input type="hidden" th:field="${boardGame.boardGameId}" name="boardGameId">-->
                 <button type="submit">Add to Cart</button>
                 <!--                <input type="checkbox" name="selectedItems" th:value="${boardGame.boardGameId}"/>-->
                 <!--                <span th:text="${boardGame.title}"></span>-->

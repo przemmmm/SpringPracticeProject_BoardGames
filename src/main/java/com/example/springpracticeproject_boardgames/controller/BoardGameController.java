@@ -31,8 +31,10 @@ public class BoardGameController {
     private DataLoader dataLoader;
     private BoardGameRepository boardGameRepository;
 
-    public BoardGameController(BoardGameService boardGameService) {
+
+    public BoardGameController(BoardGameService boardGameService, BoardGameRepository boardGameRepository) {
         this.boardGameService = boardGameService;
+        this.boardGameRepository = boardGameRepository;
     }
 
     @GetMapping("/home")
@@ -56,6 +58,7 @@ public class BoardGameController {
     public String getAllBoardgame(Model model) {
         List<BoardGameDTO> boardGames = boardGameService.getBoardGames();
         model.addAttribute("boardGames", boardGames);
+        System.out.println(boardGames);
         return "all-boardgames.html";
     }
 
@@ -84,9 +87,10 @@ public class BoardGameController {
 //        return "cart.html";
 //    }
 
-    @PostMapping("/add-to-cart")
-    public String addToCart (@RequestParam int boardGameId, Model model, HttpSession session){
+    @PostMapping("/add-to-cart/{boardGameId}")
+    public String addToCart (@PathVariable int boardGameId, Model model, HttpSession session){
        List<BoardGame>cartBoardGames = (List<BoardGame>) session.getAttribute("cartBoardGame");
+        System.out.println(boardGameId);
         if (cartBoardGames ==null){
             cartBoardGames = new ArrayList<>();
         }
@@ -97,6 +101,7 @@ public class BoardGameController {
             session.setAttribute("cartBoardGame", cartBoardGames);
         }
         model.addAttribute("cartBoardGames", boardGameRepository.findAll());
+        System.out.println(boardGameRepository.findAll());
         return "index.html";
     }
 //    @PostMapping("/add-to-cart")
