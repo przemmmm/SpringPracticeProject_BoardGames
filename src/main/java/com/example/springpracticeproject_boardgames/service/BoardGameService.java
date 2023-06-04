@@ -20,7 +20,7 @@ public class BoardGameService {
     public static final String UPLOAD_LOCATION = System.getProperty("user.dir")  // daje lokalizacje projekty
             + "\\upload" + File.separator;
     private BoardGameRepository boardGameRepository;
-     private BoardGameMapper mapper;
+    private BoardGameMapper mapper;
 
     public BoardGameService(BoardGameRepository boardGameRepository, BoardGameMapper mapper) {
         this.boardGameRepository = boardGameRepository;
@@ -49,24 +49,25 @@ public class BoardGameService {
 //
 //    }
 
-    public void addBoardGame(BoardGameDTO boardGameDTO){
-            BoardGame boardGame = new BoardGame(boardGameDTO.getTitle(), GameType.valueOf(boardGameDTO.getGameType()),boardGameDTO.getPrice(),
-                    boardGameDTO.getQuantity());
-            boardGameRepository.save(boardGame);
+
+    //todo: dodać mapowanie do metody
+    public void addBoardGame(BoardGameDTO boardGameDTO) {
+        BoardGame boardGame = new BoardGame(boardGameDTO.getTitle(), GameType.valueOf(boardGameDTO.getGameType()), boardGameDTO.getPrice(),
+                boardGameDTO.getQuantity());
+        boardGameRepository.save(boardGame);
     }
 
-     public List<BoardGameDTO> getBoardGames (){
+    //todo: dodać mapowanie do metody
+    public List<BoardGameDTO> getBoardGames() {
         return boardGameRepository.findAll().stream()
-                .map(boardGame -> new BoardGameDTO(boardGame.getBoardGameId(), boardGame.getTitle(),boardGame.getGameType().toString(),
+                .map(boardGame -> new BoardGameDTO(boardGame.getBoardGameId(), boardGame.getTitle(), boardGame.getGameType().toString(),
                         boardGame.getPrice(), boardGame.getQuantity(), boardGame.getFileName())).toList();
-     }
+    }
 
-     public BoardGameDTO findById(int boardGameId){
+    public BoardGameDTO findById(int boardGameId) {
         BoardGame boardGame = boardGameRepository.findById(boardGameId).orElse(null);
-//        BoardGameDTO boardGameDTO = new BoardGameDTO(boardGame.getBoardGameId(), boardGame.getTitle(), boardGame.getGameType().toString(),
-//                boardGame.getPrice(), boardGame.getQuantity(), null, boardGame.getFileName());
-         BoardGameDTO boardGameDTO = mapper.mapToDto(boardGame);
+        BoardGameDTO boardGameDTO = mapper.mapToDto(boardGame);
         return boardGameDTO;
-     }
+    }
 
 }
