@@ -12,7 +12,5 @@ public class LoginDTO {
     private String userEmail;
     private String password;
 
-//    public LoginDTO(String userEmail) {
-//        this.userEmail = userEmail;
     }
-//}
+
