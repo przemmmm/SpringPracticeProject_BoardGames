@@ -1,26 +1,21 @@
 package com.example.springpracticeproject_boardgames.controller;
 
 import com.example.springpracticeproject_boardgames.CartBoardGame;
-import com.example.springpracticeproject_boardgames.CartSession;
 import com.example.springpracticeproject_boardgames.config.DataLoader;
 import com.example.springpracticeproject_boardgames.dto.BoardGameDTO;
-import com.example.springpracticeproject_boardgames.entity.BoardGame;
 import com.example.springpracticeproject_boardgames.repository.BoardGameRepository;
-import com.example.springpracticeproject_boardgames.enums.GameType;
 import com.example.springpracticeproject_boardgames.service.BoardGameService;
+import com.example.springpracticeproject_boardgames.session.CartSession;
 import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 public class BoardGameController {
@@ -30,6 +25,7 @@ public class BoardGameController {
     private BoardGameService boardGameService;
     private DataLoader dataLoader;
     private BoardGameRepository boardGameRepository;
+//    private RestApiClient restApiClient;
 
 
     public BoardGameController(BoardGameService boardGameService, BoardGameRepository boardGameRepository) {
@@ -54,6 +50,13 @@ public class BoardGameController {
         return "index.html";
     }
 
+//    @PostMapping("/add")
+//    public String addBoardGame(BoardGameDTO boardGameDTO) {
+//        //System.out.println(boardGameDTO);
+//        restApiClient.sendAddBoardGameHttpRequest(boardGameDTO);
+//        return "index.html";
+//    }
+
     @GetMapping("/display")
     public String getAllBoardgame(Model model) {
         List<BoardGameDTO> boardGames = boardGameService.getBoardGames();
@@ -62,10 +65,11 @@ public class BoardGameController {
         return "all-boardgames.html";
     }
 
-    @GetMapping("/boardgames/{title:.*}")
-    public String getBoardGamePage(@PathVariable String title,  Model model) {
-        model.addAttribute("@{title}", title);
-        System.out.println(title + model);
+    @GetMapping("/boardgames/{id}")
+    public String getBoardGamePage(@PathVariable int id,  Model model) {
+        System.out.println(id);
+        BoardGameDTO boardGameDTO = boardGameService.findById(id);
+        model.addAttribute("boardGame", boardGameDTO);
         return "boardgame-id.html";
     }
 //    @PostMapping("/boardgames/{title}")
@@ -88,20 +92,24 @@ public class BoardGameController {
 //    }
 
     @PostMapping("/add-to-cart/{boardGameId}")
-    public String addToCart (@PathVariable int boardGameId, Model model, HttpSession session){
-       List<BoardGame>cartBoardGames = (List<BoardGame>) session.getAttribute("cartBoardGame");
-        System.out.println(boardGameId);
-        if (cartBoardGames ==null){
-            cartBoardGames = new ArrayList<>();
-        }
-        Optional<BoardGame> oCartBoardGames = boardGameRepository.findById(boardGameId);
-        if (oCartBoardGames.isPresent()){
-            BoardGame boardGameDTO = oCartBoardGames.get();
-            cartBoardGames.add(boardGameDTO);
-            session.setAttribute("cartBoardGame", cartBoardGames);
-        }
-        model.addAttribute("cartBoardGames", boardGameRepository.findAll());
-        System.out.println(boardGameRepository.findAll());
+    public String addToCart (@PathVariable int boardGameId, Model model){
+//       List<BoardGame>cartBoardGames = (List<BoardGame>) session.getAttribute("cartBoardGame");
+//        System.out.println(boardGameId);
+//        if (cartBoardGames ==null){
+//            cartBoardGames = new ArrayList<>();
+//        }
+//        Optional<BoardGame> oCartBoardGames = boardGameRepository.findById(boardGameId);
+//        if (oCartBoardGames.isPresent()){
+//            BoardGame boardGameDTO = oCartBoardGames.get();
+//            cartBoardGames.add(boardGameDTO);
+//            session.setAttribute("cartBoardGame", cartBoardGames);
+//        }
+//        model.addAttribute("cartBoardGames", boardGameRepository.findAll());
+//        System.out.println(boardGameRepository.findAll());
+        System.out.println("Koszyk przed dodaniem gry");
+        System.out.println(cartSession);
+        BoardGameDTO boardGameDTO = boardGameService.findById(boardGameId);
+        cartSession.addBoardGame(boardGameDTO);
         return "index.html";
     }
 //    @PostMapping("/add-to-cart")

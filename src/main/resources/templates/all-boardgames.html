@@ -25,7 +25,7 @@
     <tr th:each="boardGame:${boardGames}">
         <form action="/boardGame/@{title:.*}" method="get">
             <td>
-                <a th:text="${boardGame.title}" th:href="@{ '/boardgames/' + ${boardGame.title} }" >
+                <a th:text="${boardGame.title}" th:href="@{ '/boardgames/' + ${boardGame.boardGameId} }" >
                 </a>
             </td>
             <td th:text="${boardGame.gameType}"></td>
