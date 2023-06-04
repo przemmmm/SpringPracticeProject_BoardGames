@@ -35,4 +35,5 @@ public class BoardGameMapper {
     public BoardGame mapToEntity(BoardGameDTO boardGamesDTO) {
         return new BoardGame(boardGamesDTO.getTitle(), GameType.valueOf(boardGamesDTO.getGameType()), boardGamesDTO.getPrice(), boardGamesDTO.getQuantity(), boardGamesDTO.getFileName());
     }
+
 }

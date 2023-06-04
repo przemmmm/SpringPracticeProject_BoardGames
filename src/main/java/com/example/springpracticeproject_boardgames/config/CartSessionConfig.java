@@ -1,7 +1,6 @@
 package com.example.springpracticeproject_boardgames.config;
 
-import com.example.springpracticeproject_boardgames.CartSession;
-import com.example.springpracticeproject_boardgames.session.UserSession;
+import com.example.springpracticeproject_boardgames.session.CartSession;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.context.annotation.SessionScope;
