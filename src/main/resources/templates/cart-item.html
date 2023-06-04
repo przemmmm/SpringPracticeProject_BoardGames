@@ -17,7 +17,10 @@
   </thead>
   <tbody>
   <tr th:each="game : ${games}">
-    <td th:text="${game.title}"></td>
+    <td th:text="${game.boardGame.title}"></td>
+    <td th:text="${game.price}"></td>
+    <td th:text="${game.counter}"></td>
+
   </tr>
   </tbody>
 </table>
