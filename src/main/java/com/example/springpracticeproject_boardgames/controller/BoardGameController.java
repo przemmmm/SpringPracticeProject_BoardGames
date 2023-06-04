@@ -65,17 +65,16 @@ public class BoardGameController {
 
     @GetMapping("/cart-item")
     public String getCart(Model model) {
-        model.addAttribute("cartBoardGames", cartSession);
+        model.addAttribute("games", cartSession.getBoardGames());
         return "cart-item.html";
     }
 
     @PostMapping("/add-to-cart/{boardGameId}")
-    public String addToCart (@PathVariable int boardGameId, Model model){
+    public String addToCart (@PathVariable int boardGameId){
         System.out.println("Koszyk przed dodaniem gry");
         System.out.println(cartSession);
         BoardGameDTO boardGameDTO = boardGameService.findById(boardGameId);
         cartSession.addBoardGame(boardGameDTO);
-        model.addAttribute("cartBoardGames", boardGameDTO);
         return "index.html";
     }
 
